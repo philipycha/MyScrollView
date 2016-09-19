@@ -10,15 +10,6 @@
 
 @interface ViewController ()
 
-@property (nonatomic, weak) UIView *                rootView;
-@property (nonatomic, weak) NSLayoutConstraint *    rootViewHeight;
-@property (nonatomic, weak) NSLayoutConstraint *    rootViewWidth;
-@property (nonatomic, weak) NSLayoutConstraint *    rootViewY;
-
-@property (nonatomic, weak) UIView *                redBox;
-@property (nonatomic, weak) UIView *                greenBox;
-@property (nonatomic, weak) UIView *                yellowBox;
-@property (nonatomic, weak) UIView *                blueBox;
 
 @end
 
@@ -27,11 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIView *rootView = [[UIView alloc] initWithFrame:CGRectZero];
+    MyScrollView *rootView = [[MyScrollView alloc] init];
     rootView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:rootView];
     self.rootView = rootView;
-    self.rootView.backgroundColor = [UIColor magentaColor];
+//    self.rootView.backgroundColor = [UIColor magentaColor];
     
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:rootView
                                                           attribute:NSLayoutAttributeCenterX
@@ -106,12 +97,14 @@
     yellowBox.backgroundColor = [UIColor yellowColor];
     [self.rootView addSubview:yellowBox];
 //    [array addObject:yellowBox];
+    
+    self.rootView.contentSize = CGRectMake(0,0,self.view.frame.size.width, 750);
 
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     
-    self.rootViewY.constant -= 100;
+//    self.rootViewY.constant -= 100;
     
 }
 
