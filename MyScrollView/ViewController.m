@@ -22,7 +22,7 @@
     rootView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:rootView];
     self.rootView = rootView;
-//    self.rootView.backgroundColor = [UIColor magentaColor];
+    self.rootView.backgroundColor = [UIColor magentaColor];
     
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:rootView
                                                           attribute:NSLayoutAttributeCenterX
@@ -56,7 +56,7 @@
                                                                             toItem:self.view
                                                                          attribute:NSLayoutAttributeHeight
                                                                         multiplier:1.0
-                                                                          constant:0.0];
+                                                                          constant:200];
     
     NSLayoutConstraint *rootViewWidth = [NSLayoutConstraint constraintWithItem:rootView
                                                                         attribute:NSLayoutAttributeWidth

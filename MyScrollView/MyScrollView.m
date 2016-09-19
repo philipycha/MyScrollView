@@ -40,7 +40,10 @@
 
 - (void)panGesture:(UIPanGestureRecognizer *)sender {
     
+    
     CGRect frame = self.frame;
+    
+    CGRect originalFrame = frame;
     
     if (sender.state == UIGestureRecognizerStateChanged) {
         
@@ -49,14 +52,40 @@
       
     }
     
+    if (frame.origin.x > 0){
+        
+        frame.origin.x = 0;
+        
+    }
+    
+    if (frame.origin.x <  frame.size.width - 320) {
+        
+        frame.origin.x = frame.size.width - 320;
+        
+    }
+    
+    if (frame.origin.y < self.contentSize.size.height - 950) {
+    
+        frame.origin.y = self.contentSize.size.height - 950;
+    
+    }
+    
+    if (frame.origin.y > 0){
+        
+        frame.origin.y = 0;
+        
+    }
+    
     self.frame = frame;
     
     if (CGRectContainsRect(self.contentSize, frame)) {
         
         self.frame = frame;
         
+        
     }
     
+    frame = originalFrame;
 }
 
 -(void)addSubview:(UIView *)view{
